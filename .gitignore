@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Test
+/TH.Generator/.vs
+/TH.Generator/obj
+/TH.Generator/bin/Debug/net8.0
