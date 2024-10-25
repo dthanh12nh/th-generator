@@ -6,9 +6,10 @@
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0</Version>
+    <Version>1.0.0</Version>
     <PackageId>TH.Generator</PackageId>
     <Authors>Thanh Tran</Authors>
+    <Product>TH.Generator</Product>
   </PropertyGroup>
 
 </Project>
