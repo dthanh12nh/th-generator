@@ -5,6 +5,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.0</Version>
+    <PackageId>TH.Generator</PackageId>
+    <Authors>Thanh Tran</Authors>
   </PropertyGroup>
 
 </Project>
