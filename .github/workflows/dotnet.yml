@@ -25,8 +25,8 @@ jobs:
     - name: Extract version from .csproj
       id: extract_version
       run: |
-        VERSION=$(dotnet msbuild -nologo -target:GetVersion -property:GetVersionFile=$(find . -name "TH.Generator.csproj") property:GetVersion="%(Version)")
-        echo "##[set-output name=VERSION;]$VERSION"
+        VERSION=$(xmlstarlet sel -t -v "//*[local-name()='Version']" TH.Generator.csproj)
+        echo "##[set-output name=VERSION;$VERSION"
         
     - name: Build
       run: |
