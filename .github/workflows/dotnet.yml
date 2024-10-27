@@ -27,7 +27,7 @@ jobs:
       run: |
         PROJECT_FILE="./TH.Generator/TH.Generator.csproj"
         VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" "$PROJECT_FILE")
-        echo "##[set-output name=VERSION;$VERSION"
+        echo "##[set-output name=VERSION;]$VERSION"
         
     - name: Build
       run: |
