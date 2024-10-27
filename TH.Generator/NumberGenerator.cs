@@ -4,12 +4,10 @@ namespace TH.Generator
 {
     public static class NumberGenerator
     {
-        /// <summary>
-        /// Return an array of random numbers
-        /// </summary>
-        /// <param name="length"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
+        /// <summary>Return an array of random numbers</summary>
+        /// <param name="length">Length of the array</param>
+        /// <param name="min">The number is greater or equal to <paramref name="min"/></param>
+        /// <param name="max">The number is less than <paramref name="max"/></param>
         /// <returns></returns>
         public static int[] GetRandomNumbers(int length, int min, int max)
         {
