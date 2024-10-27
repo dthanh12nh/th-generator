@@ -22,16 +22,11 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Check current directory
-      run: |
-        echo "Current directory: $(pwd)"
-        echo "Listing files:"
-        ls -R
-
     - name: Extract version from .csproj
       id: extract_version
       run: |
-        VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" TH.Generator.csproj)
+        PROJECT_FILE="./TH.Generator/TH.Generator.csproj"
+        VERSION=$(grep -oPm1 "(?<=<Version>)[^<]+" "$PROJECT_FILE")
         echo "##[set-output name=VERSION;$VERSION"
         
     - name: Build
