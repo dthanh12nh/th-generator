@@ -31,7 +31,7 @@ jobs:
         
     - name: Build
       run: |
-        echo "Building version: ${{ steps.extract_version.outputs.VERSION }}
+        echo "Building version: ${{ steps.extract_version.outputs.VERSION }}"
         dotnet build --configuration Release
 
     - name: Package project
