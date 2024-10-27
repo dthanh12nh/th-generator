@@ -44,7 +44,7 @@ jobs:
       
     - name: Upload package to GitHub Packages
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TH_Generator_Token }}
         VERSION: ${{ steps.extract_version.outputs.VERSION }}
       run: |
         echo "Uploading package version: $VERSION"
