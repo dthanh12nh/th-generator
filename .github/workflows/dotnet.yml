@@ -31,6 +31,7 @@ jobs:
         
     - name: Build
       run: |
+        cd TH.Generator
         echo "Building version: ${{ steps.extract_version.outputs.VERSION }}"
         dotnet build --configuration Release
 
