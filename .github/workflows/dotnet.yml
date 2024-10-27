@@ -45,5 +45,5 @@ jobs:
         VERSION: ${{ steps.extract_version.outputs.VERSION }}
       run: |
         echo "Uploading package version: $VERSION"
-        PACKAGE_FILE=$(find . -name "*$VERSION*.nupkg")
+        PACKAGE_FILE=$(find . -name "*$VERSION.nupkg")
         dotnet nuget push "$PACKAGE_FILE" --source "https://nuget.pkg.github.com/dthanh12nh/index.json" --api-key "$GITHUB_TOKEN"
