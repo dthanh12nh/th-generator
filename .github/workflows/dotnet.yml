@@ -37,6 +37,7 @@ jobs:
 
     - name: Package project
       run: |
+        cd TH.Generator
         VERSION=${{ steps.extract_version.outputs.VERSION }}
         echo "Packing version: $VERSION"
         dotnet pack --configuration Release /p:Version=$VERSION
