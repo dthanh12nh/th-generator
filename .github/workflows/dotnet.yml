@@ -1,0 +1,48 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: [ "verion/*" ]
+  pull_request:
+    branches: [ "verion/*" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Extract version from .csproj
+      id: extract_version
+      run: |
+        VERSION=$(dotnet msbuild -nologo -target:GetVersion -property:GetVersionFile=$(find . -name "TH.Generator.csproj") property:GetVersion="%(Version)")
+        echo "##[set-output name=VERSION;]$VERSION"
+        
+    - name: Build
+      run: |
+        echo "Building version: ${{ steps.extract_version.outputs.VERSION }}
+        dotnet build --configuration Release
+
+    - name: Package project
+      run: |
+        VERSION=${{ steps.extract_version.outputs.VERSION }}
+        echo "Packing version: $VERSION"
+        dotnet pack --configuration Release /p:Version=$VERSION
+      
+    - name: Upload package to GitHub Packages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VERSION: ${{ steps.extract_version.outputs.VERSION }}
+      run: |
+        echo "Uploading package version: $VERSION"
+        
