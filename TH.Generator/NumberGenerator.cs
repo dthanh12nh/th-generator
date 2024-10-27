@@ -4,25 +4,24 @@ namespace TH.Generator
 {
     public static class NumberGenerator
     {
+        /// <summary>
+        /// Return an array of random numbers
+        /// </summary>
+        /// <param name="length"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static int[] GetRandomNumbers(int length, int min, int max)
         {
-            int[] randomNumbers = new int[length];
+            var numbers = new int[length];
             var random = new Random();
-            
-            unsafe
+
+            for (int i = 0; i < length; i++)
             {
-                fixed (int* p = randomNumbers)
-                {
-                    int* current = p;
-                    for (int i = 0; i < length; i++)
-                    {
-                        *current = random.Next(min, max + 1);
-                        current++;
-                    }
-                }
+                numbers[i] = random.Next(min, max);
             }
 
-            return randomNumbers;
+            return numbers;
         }
     }
 }
